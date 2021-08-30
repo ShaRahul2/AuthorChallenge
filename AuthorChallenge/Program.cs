@@ -68,6 +68,29 @@ namespace AuthorChallenge
 
         public static void Main(string[] args)
         {
+
+            #region CodeSignal
+
+            List<string> st = new List<string>();
+            st.Add("dfadf|ERROR|FADSF.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|FADSF.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|WFQWD.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|WFQWD.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|DGAS.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|DSFGAS.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|SDGASD.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|GASDG.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|GASD.DF|FASDF|FASDF|FASDF");
+            st.Add("dfadf|ERROR|ASDG.DF|FASDF|FASDF|FASDF");
+
+            var abc = (from nod in st
+                       where nod.Split('|')[1].ToLower() == "error"
+                       select new { error = nod.Split('|')[1], file = nod.Split('|')[2] }).ToList();
+
+            Console.WriteLine(abc.GroupBy(g => g.file));
+
+            #endregion
+
             int threshold = Convert.ToInt32(Console.ReadLine().Trim());
 
             List<string> result = Result.getUsernames(threshold);
